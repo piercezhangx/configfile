@@ -60,6 +60,12 @@ endif
 
 filetype plugin indent on
 
+" Disable vi-compatibility
+set nocompatible
+
+" set comment color
+highlight Comment ctermfg=6
+
 set ts=4
 set autoindent shiftwidth=4
 set expandtab
@@ -80,7 +86,6 @@ set fileencodings=utf8,gbk
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Powerline settings for vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    set nocompatible   " Disable vi-compatibility
     set laststatus=2   " Always show the statusline
     set encoding=utf-8 " Necessary to show Unicode glyphs
     set t_Co=256 " Explicitly tell Vim that the terminal supports 256 colors
@@ -89,7 +94,6 @@ set fileencodings=utf8,gbk
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vundle settings for vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
- set nocompatible               " be iMproved
  filetype off                   " required!
 
  set rtp+=~/.vim/bundle/vundle/
