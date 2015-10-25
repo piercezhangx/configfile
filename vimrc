@@ -48,6 +48,7 @@ if &t_Co > 2 || has("gui_running")
   "set background=light
   "色彩方案
   colorscheme torte
+  "colorscheme badwolf
 
   set list
   "显示TAB成 ">---" 行尾多余的空白成 "-"
@@ -56,6 +57,35 @@ if &t_Co > 2 || has("gui_running")
   "高亮显示所有匹配的地方
   set hlsearch
   "set nohlsearch
+endif
+
+set wildmenu            " visual autocomplete for command menu
+set lazyredraw          " redraw only when we need to
+set showmatch           " highlight matching [{()}]
+" turn off search highlight
+nnoremap <space> :nohlsearch<CR>
+
+" move vertically by visual line
+nnoremap j gj
+nnoremap k gk
+
+" move to beginning/end of line
+nnoremap B ^
+nnoremap E $
+
+" highlight last inserted text
+nnoremap gV `[v`]
+
+" jk is escape
+inoremap jk <esc>
+
+" allows cursor change in tmux mode
+if exists('$TMUX')
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
 filetype plugin indent on
@@ -296,3 +326,4 @@ if has("cscope")
     "set ttimeoutlen=100
 
 endif
+hi Comment ctermfg=6
